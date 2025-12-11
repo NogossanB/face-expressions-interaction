@@ -1,0 +1,6 @@
+#webcam {
+  width: 400px;
+  height: auto;
+  border-radius: 10px;
+  transform: scaleX(-1);
+}
