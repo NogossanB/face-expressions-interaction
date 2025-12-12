@@ -5,7 +5,7 @@ Selon l’émotion perçue, l’interface réagit en modifiant :
 
 - Un fond chromatique inspiré des palettes afro-textiles,
 
-- Trois symboles 2D animés autour de la personne,
+- Deux symboles 2D animés autour de la personne,
 
 - Une mise en scène graphique douce et immersive.
 
