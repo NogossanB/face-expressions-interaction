@@ -25,8 +25,8 @@ console.log("Script en chargement");
 
 // Charger les modèles FaceAPI
 async function loadModels() {
-  await faceapi.nets.tinyFaceDetector.load("/models");
-  await faceapi.nets.faceExpressionNet.load("/models");
+  await faceapi.nets.tinyFaceDetector.load("./models");
+  await faceapi.nets.faceExpressionNet.load("./models");
   console.log("Face API models loaded");
 }
 
