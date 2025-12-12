@@ -1,0 +1,32 @@
+#start-experience {
+  padding: 12px 20px;
+  border-radius: 8px;
+  background: #00000022;
+  border: 1px solid #ffffff55;
+  color: white;
+  font-size: 18px;
+  backdrop-filter: blur(6px);
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+#start-experience:hover {
+  background: #ffffff44;
+}
+
+#symbols-container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 20;
+}
+
+.symbol {
+  width: 120px;
+  height: 120px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  z-index: 30;
+  background: transparent;
+}
+
