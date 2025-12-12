@@ -5,11 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Parfum de conscience</title>
   <link rel="stylesheet" href="styles/webcam.css">
+  <link rel="stylesheet" href="styles/theme.css">
+  
 </head>
 <body>
   <h1>Parfum de conscience</h1>
 
-    <video id="webcam" autoplay playsinline></video>
+  <button id="start-experience">Commencer l’expérience</button>
+
+    <div id="webcam-container">
+        <video id="webcam" autoplay playsinline></video>
+        <div id="emotion-aura"></div>
+        <div id="symbols-container"></div>
+        <div id="emotion-bg"></div>
+    </div>
+
 
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
 
