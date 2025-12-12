@@ -1,17 +1,4 @@
 export const EMOTIONS = {
-  calm: {
-    label: "Calme",
-    faceKey: "neutral",
-    color1: "#163c4a", 
-    color2: "#f6e6c2",
-    bg1: "#050816",
-    bg2: "#0b3b3b",
-    symbols: [
-      "symbols/calm-1.svg",
-      "symbols/calm-2.svg",
-      "symbols/calm-3.svg"
-    ]
-  },
   joy: {
     label: "Joie",
     faceKey: "happy",
