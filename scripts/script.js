@@ -25,7 +25,7 @@ async function startWebcam() {
   }
 }
 
-
+import { EMOTIONS } from "./emotions.config.js";
 
 
 
