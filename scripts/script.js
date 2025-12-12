@@ -7,8 +7,8 @@ let pendingEmotion = null;
 let stabilityCount = 0;
 let lastChangeTime = 0;
 
-const STABILITY_REQUIRED = 8;   
-const COOLDOWN = 1500; 
+const STABILITY_REQUIRED = 3;   
+const COOLDOWN = 500; 
 
 // Event bouton
 
@@ -55,26 +55,39 @@ async function startWebcam() {
 
 // Choisit l’émotion face-api la plus forte
 function getDominantEmotion(expressions) {
-  let best = "neutral";
-  let bestValue = 0.2;
-  for (const [key, value] of Object.entries(expressions)) {
-    if (value > bestValue) {
-      best = key;
-      bestValue = value;
-    }
+
+  const happy = expressions.happy;
+  const sad = expressions.sad;
+  const neutral = expressions.neutral;
+
+  // JOY 
+  if (happy > 0.35) {
+    return "happy";
   }
-  return best;
+
+  // JOY = visage neutre mais légèrement positif
+  if (neutral > 0.50 && happy > 0.20) {
+    return "happy";
+  }
+
+  // TENSION DOUCE
+  if (sad > 0.20) {
+    return "sad";
+  }
+
+  // NEUTRE 
+  return "sad";
 }
 
-// Map vers les émotions
+
 function mapToCustomEmotion(faceEmotion) {
-  for (const e of Object.values(EMOTIONS)) {
-    if (e.faceKey === faceEmotion) return e;
-  }
+  if (faceEmotion === "happy") return EMOTIONS.joy;
+  if (faceEmotion === "sad") return EMOTIONS.tension; 
 
-  // Si aucun match → on choisit "joy" par défaut
-  return EMOTIONS.joy;
+  // Neutre → Tension douce 
+  return EMOTIONS.tension;
 }
+
 
 
 
@@ -138,6 +151,12 @@ async function detectLoop() {
             return;
         }
 
+        if (!experienceStarted) {
+            requestAnimationFrame(detectLoop);
+            return;
+        }
+
+
         if (pendingEmotion !== currentEmotion) {
 
             currentEmotion = pendingEmotion;
@@ -146,7 +165,7 @@ async function detectLoop() {
             applyEmotion(emo);
             applyAuraCenter(emo);
 
-            console.log("✨ Transition douce vers :", emo.label);
+            console.log("Transition vers :", emo.label);
         }
     }
 
@@ -167,7 +186,7 @@ function applyAuraCenter(emotion) {
   `;
 }
 
-
 detectLoop();
+
 // Lancement global
 loadModels().then(() => startWebcam());

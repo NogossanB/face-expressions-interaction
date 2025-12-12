@@ -17,8 +17,8 @@ export const EMOTIONS = {
     faceKey: "sad", 
     color1: "#2e1065",
     color2: "#f97316",
-    bg1: "#020617",
-    bg2: "#312e81",
+    bg1: "#35043fff",
+    bg2: "#413dacff",
     symbols: [
       "symbols/tension-1.svg",
       "symbols/tension-2.svg",
